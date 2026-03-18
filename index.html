@@ -212,11 +212,11 @@ function loadPhase(phase){
 function showgut(gutNumber){
   let folder = '';
 
-  if(current === 'rajgad') folder = 'rajgad_gut';
-  if(current === 'torna') folder = 'torna_gut';
-  if(current === 'sinhgad') folder = 'sinhgad_gut';
+  if(current === 'rajgad') folder = 'rajgad_gut_scaled';
+  if(current === 'torna') folder = 'torna_gut_scaled';
+  if(current === 'sinhgad') folder = 'sinhgad_gut_scaled';
 
-  const imagePath = `${folder}/${gutNumber}.png`;
+  const imagePath = `${folder}/${gutNumber}.jpg`;
 
   const container = document.getElementById('mapContainer');
   const title = document.getElementById('title');
