@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Interactive Map - Rajdhani Durg</title>
+  <style>
+    body { margin:0; font-family: Arial; background:#111; color:white; text-align:center; }
+    .map-container { width:100%; max-width:500px; margin:auto; }
+    svg { width:100%; height:auto; }
+    polygon { fill: transparent; stroke: transparent; cursor:pointer; }
+    polygon:hover { fill: rgba(0,255,0,0.3); }
+    button { margin:10px; padding:10px; border:none; border-radius:8px; }
+  </style>
+</head>
+<body>
+
+<h3 id="title">Rajdhani Durg</h3>
+
+<div class="map-container" id="mapContainer"></div>
+
+<button onclick="goBack()">Back</button>
+
+<script>
+let current = 'main';
+
+function loadMain(){
+  const container = document.getElementById('mapContainer');
+  const title = document.getElementById('title');
+
+  title.innerText = 'Rajdhani Durg';
+
+  container.innerHTML = `
+    <svg viewBox="0 0 11858 8375">
+
+  <g transform="translate(0,8375) rotate(-90) scale(16.05,5.23)">
+
+    <image href="main_map.png" width="11858" height="8375" />
+
+      <polygon points="511,659 471,817 536,843 637,801 728,746 661,644 660,511 630,493 533,531 356,448 263,486 267,507 247,520 259,561 300,572 355,674" onclick="loadPhase('torna')" />
+
+      <polygon points="329,813 504,661 355,684 331,643 319,613 281,568 256,567 235,520 262,507 252,491 150,559 134,588 70,652 154,735 175,769 245,763 293,806 309,814" onclick="loadPhase('sinhgad')" />
+
+      <polygon points="501,1148 482,1076 487,1061 468,1026 497,940 512,932 509,894 536,853 460,820 501,671 363,795 436,828 335,878 346,925 270,947 310,1036 331,1069 368,1149 433,1157" onclick="loadPhase('rajgad')" />
+</g>
+    </svg>
+  `;
+}
+
+function loadPhase(phase){
+  current = phase;
+  const container = document.getElementById('mapContainer');
+  const title = document.getElementById('title');
+
+  if(phase === 'torna'){
+    title.innerText = 'Torna Phase';
+
+    container.innerHTML = `
+      <svg viewBox="0 0 739 1600">
+        <image href="torna.jpeg" width="739" height="1600" />
+
+        <polygon points="108,343 74,337 3,366 0,382 29,437 63,454 103,405" data-gut="140" />
+
+<polygon points="23,313 137,257 177,246 157,308 110,342 73,333 41,346" data-gut="141" />
+
+<polygon points="105,403 198,397 243,387 284,368 319,370 331,346 178,244 160,308 111,343" data-gut="142" />
+
+<polygon points="101,470 205,413 204,425 251,459 133,530" data-gut="154" />
+
+<polygon points="198,400 244,388 251,455 207,423 208,411" data-gut="155" />
+
+<polygon points="347,797 422,797 526,769 605,682 718,655 736,727 659,789 618,806 562,838 440,871 344,831" data-gut="184"/>
+
+  <polygon points="361,761 601,680 525,766 421,794 347,792" data-gut="183"/>
+
+  <polygon points="378,685 683,594 716,652 601,675 361,754" data-gut="182"/>
+
+  <polygon points="381,680 410,584 470,529 546,531 649,497 651,553 681,590" data-gut="180"/>
+
+  <polygon points="471,525 539,436 594,454 650,423 648,494 545,527" data-gut="179"/>
+
+  <polygon points="542,432 650,405 650,420 594,452" data-gut="178"/>
+
+  <polygon points="545,431 599,318 658,348 651,403" data-gut="177"/>
+
+  <polygon points="467,522 480,370 531,371 591,323 537,432" data-gut="176"/>
+
+  <polygon points="410,580 465,526 476,371 446,371 377,353" data-gut="175"/>
+
+  <polygon points="306,370 318,371 331,347 375,353 395,496" data-gut="174"/>
+
+  <polygon points="406,584 393,499 301,370 281,371 244,388 291,492 165,600 178,618" data-gut="173"/>
+
+  <polygon points="137,534 253,460 245,398 284,490 163,596 144,569" data-gut="156"/>
+
+  <polygon points="79,439 103,408 197,401 202,410 101,462" data-gut="143"/>
+      </svg>
+    `;
+  }
+
+  if(phase === 'sinhgad'){
+    title.innerText = 'Sinhgad Phase';
+
+    container.innerHTML = `
+      <svg viewBox="0 0 739 1600">
+        <image href="sinhgad.jpeg" width="739" height="1600" />
+
+        <polygon points="257,391 307,358 329,392 276,415" data-gut="139" />
+<polygon points="219,415 254,391 274,415 266,434" data-gut="138" />
+<polygon points="278,491 316,494 274,416 267,432" data-gut="137" />
+<polygon points="244,481 272,480 266,435 243,452" data-gut="136" />
+<polygon points="244,484 273,482 276,492 245,490" data-gut="135" />
+<polygon points="172,450 219,417 261,434 240,450 242,480 243,490 193,479" data-gut="134" />
+<polygon points="95,527 119,485 169,450 188,477 170,482 167,507" data-gut="133" />
+<polygon points="115,580 116,606 143,610 193,590 209,539 243,492 189,480 173,486 173,511 147,561" data-gut="132" />
+<polygon points="48,568 91,529 168,510 144,559 113,578 114,605 70,626 44,628 51,581" data-gut="130" />
+<polygon points="0,623 45,568 48,579 41,628" data-gut="129" />
+<polygon points="70,628 116,608 144,611 193,593 220,615 168,663 103,660 74,652" data-gut="131" />
+<polygon points="227,620 329,541 353,509 317,494 247,492 212,539 195,590" data-gut="145" />
+<polygon points="332,541 357,546 398,526 364,495" data-gut="144" />
+<polygon points="307,596 356,565 356,548 331,541 299,565" data-gut="150" />
+<polygon points="278,613 303,596 297,569 271,588" data-gut="147" />
+<polygon points="308,598 356,565 377,596 339,611" data-gut="149" />
+<polygon points="278,615 306,599 337,613 287,624" data-gut="148" />
+<polygon points="388,605 411,599 377,538 357,548 357,565" data-gut="151" />
+<polygon points="411,561 395,569 378,536 393,530" data-gut="152" />
+<polygon points="413,598 428,593 413,564 396,569" data-gut="153" />
+<polygon points="214,644 267,593 273,614 286,625 376,601 387,606 431,594 433,603 332,654 269,660" data-gut="146" />
+<polygon points="254,688 268,662 333,655 329,677 257,709" data-gut="158" />
+<polygon points="134,733 214,645 264,660 251,693" data-gut="159" />
+<polygon points="114,757 134,742 132,777 123,783" data-gut="160" />
+<polygon points="125,783 144,806 158,804 199,764 214,730 256,713 251,694 137,735 134,776" data-gut="161" />
+<polygon points="199,764 218,778 361,709 328,678 214,732" data-gut="163" />
+<polygon points="329,675 334,655 435,603 441,636 465,670 362,705" data-gut="157" />
+<polygon points="362,709 465,673 477,690 427,737 387,744" data-gut="170" />
+<polygon points="370,737 372,724 386,745 378,748" data-gut="169" />
+<polygon points="160,841 154,822 159,804 199,766 218,781 359,710 368,723 367,732 367,738 376,749 316,787 297,766" data-gut="162" />
+<polygon points="159,842 172,849 281,839 297,823 286,812 313,788 296,768" data-gut="164" />
+<polygon points="472,699 594,771 733,653" data-gut="172" />
+<polygon points="428,738 470,699 592,772 480,881" data-gut="171" />
+<polygon points="282,841 352,771 380,751 426,739 477,882 427,920 396,922 362,907" data-gut="168" />
+<polygon points="288,812 302,801 309,809 297,821" data-gut="165" />
+<polygon points="303,801 316,789 323,794 311,807" data-gut="166" />
+<polygon points="317,789 326,793 364,758" data-gut="167" />
+      </svg>
+    `;
+  }
+
+  if(phase === 'rajgad'){
+    title.innerText = 'Rajgad Phase';
+
+    container.innerHTML = `
+      <svg viewBox="0 0 739 1600">
+        <image href="rajgad.jpeg" width="739" height="1600" />
+
+        <polygon points="332,1357 352,1372 353,1392 385,1390 441,1408 452,1388 552,1396 626,1374 586,1267 506,1324" data-gut="211" />
+
+<polygon points="248,1351 529,1269 581,1248 585,1262 502,1322 333,1353 268,1383" data-gut="210" />
+
+<polygon points="208,1202 227,1203 209,1156 223,1158 371,1249 521,1267 248,1346" data-gut="209" />
+
+<polygon points="580,1244 564,1185 577,1166 576,1131 534,1141 440,1194 390,1154 328,1061 323,1069 324,1084 281,1113 208,1120 209,1151 227,1155 367,1244 527,1264" data-gut="208" />
+
+<polygon points="318,1080 277,1109 264,1095" data-gut="207" />
+
+<polygon points="267,1060 318,1060 319,1076 263,1090" data-gut="206" />
+
+<polygon points="455,1070 388,1148 438,1189 531,1135 574,1129 535,1061 534,1021 549,974" data-gut="203" />
+
+<polygon points="197,953 386,975 452,1066 385,1144 336,1059 224,1061 197,1002" data-gut="204" />
+
+<polygon points="31,937 56,923 86,936 177,917 194,956 192,1000 219,1059 261,1064 258,1089 269,1105 200,1110 215,1194 204,1192 187,1170 152,1156 139,1103 74,1065 88,1036 48,1021" data-gut="205" />
+
+<polygon points="16,851 48,849 193,816 232,853 333,836 381,966 194,947 179,912 88,928 53,916 29,930 20,897" data-gut="200" />
+
+<polygon points="334,833 412,816 561,943 547,970 453,1060 385,970" data-gut="201" />
+
+<polygon points="195,811 220,738 447,768 466,798 233,848" data-gut="199" />
+
+<polygon points="468,802 579,906 565,941 417,814" data-gut="198" />
+
+<polygon points="450,766 497,732 535,774 653,822 581,898 491,818" data-gut="197" />
+
+<polygon points="500,729 703,601 713,611 641,753 651,817 539,771" data-gut="196" />
+
+<polygon points="581,638 601,570 673,598 696,589 701,596 532,704" data-gut="195" />
+
+<polygon points="174,673 397,560 522,532 596,568 579,636 527,703 447,761 222,732 187,708" data-gut="185" />
+
+<polygon points="174,665 395,555 391,543 251,460 163,519 159,599" data-gut="194" />
+
+<polygon points="334,380 411,479 392,502 391,535 256,456" data-gut="193" />
+
+<polygon points="395,540 398,507 415,485 450,501 421,549 397,555" data-gut="192" />
+
+<polygon points="425,549 452,504 466,506 463,540" data-gut="191" />
+
+<polygon points="467,504 520,529 470,540" data-gut="190" />
+
+<polygon points="336,377 486,484 483,506 421,487" data-gut="189" />
+
+<polygon points="517,506 487,486 486,509 519,520" data-gut="187" />
+
+<polygon points="339,373 367,346 520,479 517,502" data-gut="188" />
+
+<polygon points="370,345 415,299 544,421 520,475" data-gut="186" />
+
+<polygon points="420,296 625,120 542,415" data-gut="181" />
+      </svg>
+    `;
+  }
+}
+
+function showgut(gutNumber){
+  let folder = '';
+
+  if(current === 'rajgad') folder = 'rajgad_gut';
+  if(current === 'torna') folder = 'torna_gut';
+  if(current === 'sinhgad') folder = 'sinhgad_gut';
+
+  const imagePath = `${folder}/${gutNumber}.png`;
+
+  const container = document.getElementById('mapContainer');
+  const title = document.getElementById('title');
+
+  title.innerText = `gut No ${gutNumber}`;
+
+  container.innerHTML = `
+    <svg viewBox="0 0 739 1600">
+      <image href="${imagePath}" width="739" height="1600" />
+    </svg>
+  `;
+}
+
+// GLOBAL CLICK HANDLER
+
+document.addEventListener('click', function(e){
+  if(e.target.tagName === 'polygon'){
+    const gutNumber = e.target.dataset.gut;
+    if(gutNumber){
+      showgut(gutNumber);
+    }
+  }
+});
+
+function goBack(){
+  if(current === 'main') return;
+  loadMain();
+  current = 'main';
+}
+
+// LOAD MAIN INITIALLY
+loadMain();
+
+</script>
+
+</body>
+</html>
