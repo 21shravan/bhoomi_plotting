@@ -23,8 +23,20 @@
 
 <script>
 let current = 'main';
+let currentPhase = null;
+let currentGut = null;
+const historyStack = [];
 
-function loadMain(){
+function pushState(){
+  historyStack.push({ current, currentPhase, currentGut });
+}
+
+function loadMain(push = true){
+  if (push) pushState();
+  current = 'main';
+  currentPhase = null;
+  currentGut = null;
+
   const container = document.getElementById('mapContainer');
   const title = document.getElementById('title');
 
@@ -45,8 +57,11 @@ function loadMain(){
   `;
 }
 
-function loadPhase(phase){
-  current = phase;
+function loadPhase(phase, push = true){
+  if (push) pushState();
+  current = 'phase';
+  currentPhase = phase;
+  currentGut = null;
   const container = document.getElementById('mapContainer');
   const title = document.getElementById('title');
 
@@ -209,12 +224,16 @@ function loadPhase(phase){
   }
 }
 
-function showgut(gutNumber){
+function showgut(gutNumber, push = true){
+  if (push) pushState();
+  current = 'gut';
+  currentGut = gutNumber;
+
   let folder = '';
 
-  if(current === 'rajgad') folder = 'rajgad_gut_scaled';
-  if(current === 'torna') folder = 'torna_gut_scaled';
-  if(current === 'sinhgad') folder = 'sinhgad_gut_scaled';
+  if (currentPhase === 'rajgad') folder = 'rajgad_gut_scaled';
+  if (currentPhase === 'torna') folder = 'torna_gut_scaled';
+  if (currentPhase === 'sinhgad') folder = 'sinhgad_gut_scaled';
 
   const imagePath = `${folder}/${gutNumber}.webp`;
 
@@ -242,13 +261,24 @@ document.addEventListener('click', function(e){
 });
 
 function goBack(){
-  if(current === 'main') return;
-  loadMain();
-  current = 'main';
+  if (historyStack.length === 0) return;
+
+  const prev = historyStack.pop();
+  current = prev.current;
+  currentPhase = prev.currentPhase;
+  currentGut = prev.currentGut;
+
+  if (current === 'main') {
+    loadMain(false);
+  } else if (current === 'phase') {
+    loadPhase(currentPhase, false);
+  } else if (current === 'gut') {
+    showgut(currentGut, false);
+  }
 }
 
 // LOAD MAIN INITIALLY
-loadMain();
+loadMain(false);
 
 </script>
 
